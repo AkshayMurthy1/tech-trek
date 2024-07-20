@@ -12,7 +12,6 @@ import HomeForum from './pages/HomeForum'
 function App() {
   return (
     <>
-    
     <Router>
       <UserProvider>
     <div className='App'>
