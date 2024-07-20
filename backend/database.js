@@ -80,3 +80,5 @@ export async function addForum(forum){
     const [result] = await pool.query(`insert into forums (forum_catergory) values (?)`,[forum])
     return result
 }
+
+//change
