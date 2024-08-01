@@ -2,7 +2,9 @@ import React from 'react'
 
 function About() {
   return (
-    <div>About</div>
+    <section className=' h-[100vh] flex justify-center text-white'>
+      <div className=' text-5xl'>About</div>
+    </section>
   )
 }
 
