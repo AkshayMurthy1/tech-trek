@@ -9,15 +9,19 @@ export const Navlinks: NavLink[] = [
     route: '/',
   },
   {
-    name: 'About',
-    route: '/about',
+    name: 'Marketplace',
+    route: '/marketplace',
   },
   {
     name: 'Forum',
     route: '/forum',
   },
   {
-    name: 'Services',
-    route: '/Services',
+    name: 'Ventures',
+    route: '/ventures',
+  },
+  {
+    name: 'News',
+    route: '/news',
   },
 ];

@@ -1,12 +1,12 @@
-import React from 'react'
-import Navbar from './components/navigation';
-import Lander from './components/Lander';
+import React from 'react';
+import Lander from './components/lander';
+import About from './about/page';
 
 export default function App() {
   return (
     <>
-      <Navbar />
       <Lander />
+      <About />
     </>
   );
 }

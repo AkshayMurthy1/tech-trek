@@ -1,5 +1,6 @@
 "use client";
 import { Outfit } from "next/font/google";
+import Link from "next/link";
 
 const outfit = Outfit({subsets: ['latin'], weight: ['400'] })
 
@@ -15,8 +16,8 @@ function Login() {
 
   const handleSignup = async () => {};
   return (
-    <section className={`w-[100vw] h-[100vh] flex justify-center items-center bg-gradient-to-t from-white to-blue-400 ${outfit.className}`}>
-      <div className="h-[80vh] flex items-center justify-center bg-white border-2 border-white text-opacity-90 shadow-2xl w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[40vw] rounded-3xl">
+    <section className={`w-[100vw] h-[100vh] flex justify-center items-center bg-gradient-to-t from-black to-tech-blue ${outfit.className}`}>
+      <div className="h-[60vh] md:h-[80vh] flex items-center justify-center bg-white border-2 border-white text-opacity-90 shadow-2xl w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[40vw] rounded-3xl">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center flex-col space-y-2">
             {/* Header */}
@@ -25,7 +26,7 @@ function Login() {
             </h1>
             {/* Caption */}
             <p className="font-medium text-center">
-              Get started with <span className="text-blue-500">Tech-Trek</span>!
+              Get started with <span className="text-tech-blue">Tech-Trek</span>!
             </p>
             {/* Button Container */}
             <div className="text-xl font-light items-center w-full text-center ">
@@ -34,7 +35,7 @@ function Login() {
                 <h2
                   className={`bg-transparent text-black text-opacity-90 rounded-none p-3 transition-all duration-300 font-semibold border-b-2 px-8 md:px-16 cursor-pointer ${
                     action === "Sign Up"
-                      ? "border-b-blue-500"
+                      ? "border-b-tech-blue"
                       : "border-b-gray-400"
                   }`}
                   onClick={() => setAction("Sign Up")}
@@ -45,7 +46,7 @@ function Login() {
                 <h2
                   className={`bg-transparent text-black text-opacity-90 rounded-none p-3 transition-all duration-300 font-semibold border-b-2 cursor-pointer ${
                     action === "Login"
-                      ? "border-b-blue-500"
+                      ? "border-b-tech-blue"
                       : "border-b-gray-400"
                   }`}
                   onClick={() => setAction("Login")}
@@ -78,6 +79,13 @@ function Login() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+              )}
+              {action === "Login" && (
+                <Link
+                href='/forgotpassword'
+                >
+                  <div className=" text-xs pl-5 py-2 hover:text-tech-blue" >Forgot Password?</div>
+                </Link>
               )}
 
               <button
