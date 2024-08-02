@@ -13,9 +13,22 @@ app.get('/logins',async (req,res)=>{
     res.send(logins)
 })
 
-app.post('/logins',async(req,res)=>{
+app.post('/checklogin',async(req,res)=>{
     const {username,password} = req.body
-    const {insertId} = await db.addLogin(username,password)
+    const logins = await db.getLogins()
+    for (const login of logins){
+        if (username===login.username && password === login.password){
+            res.send('good')
+            return
+        }
+    }
+    res.send('bad')
+
+})
+
+app.post('/logins',async(req,res)=>{
+    const {username,password,email} = req.body
+    const {insertId} = await db.addLogin(username,password,email)
     console.log(insertId)
     //wont work because it is thinking it is sending a status code --> res.send(insertId)
     res.send(`${insertId}`)
