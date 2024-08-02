@@ -13,8 +13,8 @@ export async function getLogins(){
     return logins
 }
 
-export async function addLogin(username,password){
-    const [result] = await pool.query(`insert into logins (username,password) values (?,?)`,[username,password])
+export async function addLogin(username,password,email){
+    const [result] = await pool.query(`insert into logins (username,password,email) values (?,?)`,[username,password,email])
     console.log(result)
     return result
 }
@@ -80,3 +80,5 @@ export async function addForum(forum){
     const [result] = await pool.query(`insert into forums (forum_catergory) values (?)`,[forum])
     return result
 }
+
+//change
