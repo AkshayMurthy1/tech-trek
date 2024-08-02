@@ -113,7 +113,7 @@ function Login() {
                 </Link>
               )}
 
-              {wrongLog && (
+              {action==="Login"&&wrongLog && (
                 <div className="- text-xs py-2 text-red-700">Wrong Login</div>
               )}
 
