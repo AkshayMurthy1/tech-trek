@@ -27,8 +27,8 @@ app.post('/checklogin',async(req,res)=>{
 })
 
 app.post('/logins',async(req,res)=>{
-    const {username,password} = req.body
-    const {insertId} = await db.addLogin(username,password)
+    const {username,password,email} = req.body
+    const {insertId} = await db.addLogin(username,password,email)
     console.log(insertId)
     //wont work because it is thinking it is sending a status code --> res.send(insertId)
     res.send(`${insertId}`)
