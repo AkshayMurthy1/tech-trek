@@ -23,14 +23,14 @@ function Login() {
 
   const handleLogin = async () => {
     const loginData:LoginData = {username,email,password}
-    const {data} = await axios.post('api/checklogin',loginData) //data is either yes or no
+    const {data} = await axios.post('/api/checklogin',loginData) //data is either yes or no
     setWrongLog(data!=='yes')
     setLoggedIn(data==='yes')
   };
 
   const handleSignup = async () => {
     const loginData:LoginData = {username,email,password}
-    const numUser = await axios.post('api/logins',loginData)
+    const numUser = await axios.post('/api/logins',loginData)
     console.log(`Signed up our #${numUser} user`)
   };
   return (
