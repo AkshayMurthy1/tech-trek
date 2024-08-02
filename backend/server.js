@@ -14,10 +14,10 @@ app.get('/logins',async (req,res)=>{
 })
 
 app.post('/checklogin',async(req,res)=>{
-    const {username,password} = req.body
+    const {username,password,email} = req.body
     const logins = await db.getLogins()
     for (const login of logins){
-        if (username===login.username && password === login.password){
+        if (username===login.username && email == login.email && password === login.password){
             res.send('good')
             return
         }
