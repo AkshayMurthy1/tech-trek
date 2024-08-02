@@ -1,20 +1,38 @@
 "use client";
 import { Outfit } from "next/font/google";
 import Link from "next/link";
-
+import axios from "axios";
 const outfit = Outfit({subsets: ['latin'], weight: ['400'] })
 
 import React, { useState } from "react";
 
+interface LoginData {
+  username:string,
+  email:string,
+  password:string  
+}
+
 function Login() {
   const [action, setAction] = useState("Sign Up");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loggedIn,setLoggedIn] = useState(false);
+  const[wrongLog,setWrongLog] = useState(false);
 
-  const handleLogin = async () => {};
+  const handleLogin = async () => {
+    const loginData:LoginData = {username,email,password}
+    const {data} = await axios.post('api/checklogin',loginData) //data is either yes or no
+    setWrongLog(data!=='yes')
+    setLoggedIn(data==='yes')
+  };
 
-  const handleSignup = async () => {};
+  const handleSignup = async () => {
+    const loginData:LoginData = {username,email,password}
+    const numUser = await axios.post('api/logins',loginData)
+    console.log(`Signed up our #${numUser} user`)
+  };
   return (
     <section className={`w-[100vw] h-[100vh] flex justify-center items-center bg-gradient-to-t from-black to-tech-blue ${outfit.className}`}>
       <div className="h-[60vh] md:h-[80vh] flex items-center justify-center bg-white border-2 border-white text-opacity-90 shadow-2xl w-[80vw] md:w-[60vw] lg:w-[50vw] xl:w-[40vw] rounded-3xl">
@@ -65,6 +83,13 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
+                placeholder="Username"
+                type="text"
+                className="rounded-full px-5 py-2 border"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
                 placeholder="Password"
                 type="password"
                 className="rounded-full px-5 py-2 border"
@@ -86,6 +111,10 @@ function Login() {
                 >
                   <div className=" text-xs pl-5 py-2 hover:text-tech-blue" >Forgot Password?</div>
                 </Link>
+              )}
+
+              {wrongLog && (
+                <div className="- text-xs py-2 text-red-700">Wrong Login</div>
               )}
 
               <button
