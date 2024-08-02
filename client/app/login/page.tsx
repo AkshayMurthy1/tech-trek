@@ -30,8 +30,8 @@ function Login() {
 
   const handleSignup = async () => {
     const loginData:LoginData = {username,email,password}
-    const numUser = await axios.post('/api/logins',loginData)
-    console.log(`Signed up our #${numUser} user`)
+    const {data} = await axios.post('/api/logins',loginData)
+    console.log(`Signed up our #${data} user`)
   };
   return (
     <section className={`w-[100vw] h-[100vh] flex justify-center items-center bg-gradient-to-t from-black to-tech-blue ${outfit.className}`}>
