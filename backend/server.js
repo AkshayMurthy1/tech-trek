@@ -13,6 +13,19 @@ app.get('/logins',async (req,res)=>{
     res.send(logins)
 })
 
+app.post('/checklogin',async(req,res)=>{
+    const {username,password} = req.body
+    const logins = await db.getLogins()
+    for (const login of logins){
+        if (username===login.username && password === login.password){
+            res.send('good')
+            return
+        }
+    }
+    res.send('bad')
+
+})
+
 app.post('/logins',async(req,res)=>{
     const {username,password} = req.body
     const {insertId} = await db.addLogin(username,password)
