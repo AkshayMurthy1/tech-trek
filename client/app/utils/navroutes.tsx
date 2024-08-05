@@ -24,4 +24,8 @@ export const Navlinks: NavLink[] = [
     name: 'News',
     route: '/news',
   },
+  {
+    name: 'Waitlist',
+    route: '/waitlist',
+  },
 ];
