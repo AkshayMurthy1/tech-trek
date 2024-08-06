@@ -14,7 +14,7 @@ export async function getLogins(){
 }
 
 export async function addLogin(username,password,email){
-    const [result] = await pool.query(`insert into logins (username,password,email) values (?,?)`,[username,password,email])
+    const [result] = await pool.query(`insert into logins (username,password,email) values (?,?,?)`,[username,password,email])
     console.log(result)
     return result
 }

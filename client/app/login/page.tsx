@@ -2,17 +2,19 @@
 import { Outfit } from "next/font/google";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 const outfit = Outfit({subsets: ['latin'], weight: ['400'] })
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-interface LoginData {
+type LoginData = {
   username:string,
   email:string,
   password:string  
 }
 
 function Login() {
+  const router = useRouter()
   const [action, setAction] = useState("Sign Up");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -21,11 +23,13 @@ function Login() {
   const [loggedIn,setLoggedIn] = useState(false);
   const[wrongLog,setWrongLog] = useState(false);
 
+  useEffect(()=>{loggedIn&&router.push("/forum")},[loggedIn])
+
   const handleLogin = async () => {
     const loginData:LoginData = {username,email,password}
     const {data} = await axios.post('/api/checklogin',loginData) //data is either yes or no
-    setWrongLog(data!=='yes')
-    setLoggedIn(data==='yes')
+    setWrongLog(data!=='good')
+    setLoggedIn(data==='good')
   };
 
   const handleSignup = async () => {
