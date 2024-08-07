@@ -38,11 +38,11 @@ function Waitlist() {
      
   </div>
 
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-1">
-    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.instagram.com/techtrekmarketplace/"> <img src="/assets/instagram.webp" className="w-10 h-10 "/> </a></div>
-    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.linkedin.com/company/techtrek-marketplace/"> <img src="/assets/linkedin.webp" className="w-10 h-10 "/> </a></div>
-    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.tiktok.com/@techtrekmarketplace?_t=8oZIPtCBuId&_r=1"> <img src="/assets/tiktok.webp" className="w-10 h-10 "/> </a></div>
-    <div className="bg-transparent p-0 rounded-lg"><a href="youtube.com"> <img src="/assets/youtube.webp" className="w-10 h-10 "/> </a></div>
+  <div className="grid grid-cols-4 gap-1">
+    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.instagram.com/techtrekmarketplace/"  target='_blank'> <img src="/assets/instagram.webp" className="w-10 h-10 "/> </a></div>
+    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.linkedin.com/company/techtrek-marketplace/" target='_blank'> <img src="/assets/linkedin.webp" className="w-10 h-10 "/> </a></div>
+    <div className="bg-transparent p-0 rounded-lg"><a href="https://www.tiktok.com/@techtrekmarketplace?_t=8oZIPtCBuId&_r=1 " target='_blank'> <img src="/assets/tiktok.webp" className="w-10 h-10 "/> </a></div>
+    <div className="bg-transparent p-0 rounded-lg"><a href="youtube.com " target='_blank'> <img src="/assets/youtube.webp" className="w-10 h-10 "/> </a></div>
     
   </div>
 </div>
