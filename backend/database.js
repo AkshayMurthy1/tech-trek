@@ -8,13 +8,13 @@ const pool = mysql.createPool({
 }).promise()
 //^allows us to use promise api version instead of having to use callback functions; can use async await instead of callback functions
 
-export async function getLogins(){
-    const [logins] = await pool.query(`select * from logins`)
+export async function getUsers(){
+    const [logins] = await pool.query(`select * from users`)
     return logins
 }
 
-export async function addLogin(username,password,email){
-    const [result] = await pool.query(`insert into logins (username,password,email) values (?,?,?)`,[username,password,email])
+export async function addUser(username,password,email){
+    const [result] = await pool.query(`insert into users (username,password,email) values (?,?,?)`,[username,password,email])
     console.log(result)
     return result
 }

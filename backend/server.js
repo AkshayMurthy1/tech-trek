@@ -8,14 +8,14 @@ const upload = multer({dest:"/uploads"})
 app.use(express.json())
 //otherwise post requests are in json format are defined as "undefined"
 
-app.get('/logins',async (req,res)=>{
-    const logins = await db.getLogins()
+app.get('/users',async (req,res)=>{
+    const logins = await db.getUsers()
     res.send(logins)
 })
 
-app.post('/checklogin',async(req,res)=>{
+app.post('/checkuser',async(req,res)=>{
     const {username,password,email} = req.body
-    const logins = await db.getLogins()
+    const logins = await db.getUsers()
     for (const login of logins){
         if (username===login.username && email == login.email && password === login.password){
             res.send('good')
@@ -26,9 +26,9 @@ app.post('/checklogin',async(req,res)=>{
 
 })
 
-app.post('/logins',async(req,res)=>{
+app.post('/users',async(req,res)=>{
     const {username,password,email} = req.body
-    const {insertId} = await db.addLogin(username,password,email)
+    const {insertId} = await db.addUser(username,password,email)
     console.log(insertId)
     //wont work because it is thinking it is sending a status code --> res.send(insertId)
     res.send(`${insertId}`)
